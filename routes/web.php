@@ -102,7 +102,7 @@ Route::middleware(['auth', LockScreenMiddleware::class])->group(function () {
         Route::get('/dashboard', [TenantsController::class, 'dashboard'])->name('tenant.dashboard');
         Route::get('/property', [TenantsController::class, 'property'])->name('tenant.property');
         Route::get('/payments', [TenantsController::class, 'payments'])->name('tenant.payments');
-        Route::post('/payments/response', [TenantsController::class, 'callback'])->withoutMiddleware(['auth', LockScreenMiddleware::class,'auth:sanctum',config('jetstream.auth_session'),'verified',])->name('mpesa.callback');
+        Route::post('/payments/response', [TenantsController::class, 'callback'])->withoutMiddleware(['auth', LockScreenMiddleware::class, 'auth:sanctum', config('jetstream.auth_session'), 'verified',])->name('mpesa.callback');
         Route::post('/payment', [TenantsController::class, 'storePayment'])->name('tenant.payments.store');
         Route::get('/maintenance', [TenantsController::class, 'maintenance'])->name('tenant.maintenance');
         Route::post('/tenant/maintenance/submit', [TenantsController::class, 'submitMaintenanceRequest'])->name('tenants.maintenance.store');
@@ -122,22 +122,20 @@ Route::middleware(['auth', LockScreenMiddleware::class])->group(function () {
     })->name('lister.dashboard');
 
     Route::get('/lister/houses', [AddHousesController::class, 'getListerHouses'])->name('lister.houses');
-    Route::get('/houses/{id}/edit', [AddHousesController::class, 'edit'])->name('houses.edit');     
+    Route::get('/houses/{id}/edit', [AddHousesController::class, 'edit'])->name('houses.edit');
     Route::post('/houses/{id}/update', [AddHousesController::class, 'update'])->name('houses.update');
 
 
     Route::resource('houses', AddHousesController::class);
 
-// Route::get('/houses', [AddHousesController::class, 'methodName'])->name('houses.index');
-
     Route::get('/hunter/dashboard', [HunterController::class, 'dashboard'])->name('hunter.dashboard');
-    Route::get('/lister/house/{id}', [AddHousesController::class,'show'])->name('houses.show');
+    Route::get('/lister/house/{id}', [AddHousesController::class, 'show'])->name('houses.show');
     Route::get('/hunter/viewing/a/house/{id}', [HunterController::class, 'show'])->name('houseshunter.show');
     Route::post('/contact-agent/{houseId}', [HunterController::class, 'contactAgent'])->name('contact.agent');
 
 
     // Routes for booking houses
- 
+
     Route::get('/houses/{houseId}/book', [BookingController::class, 'showBookingForm'])->name('booking.form');
     Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
     Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
@@ -146,8 +144,7 @@ Route::middleware(['auth', LockScreenMiddleware::class])->group(function () {
     Route::get('/booking/{id}/edit', [BookingController::class, 'edit'])->name('booking.edit');
     Route::put('/booking/{id}', [BookingController::class, 'update'])->name('booking.update');
     Route::delete('/booking/{id}', [BookingController::class, 'destroy'])->name('booking.destroy');
-Route::put('/bookings/{id}', [BookingController::class, 'update'])->name('bookings.update');
-
+    Route::put('/bookings/{id}', [BookingController::class, 'update'])->name('bookings.update');
 });
 
 // In web.php
@@ -196,6 +193,6 @@ Route::get('/property/category/property-management-services', [PropertyControlle
 
 
 
-Route::get('/heh',function(){
+Route::get('/heh', function () {
     return view('houses-info');
 });

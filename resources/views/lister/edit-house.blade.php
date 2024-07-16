@@ -50,7 +50,7 @@
 
                     <!-- Category -->
                     <div>
-                        <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+                        <x-label for="category" class="block text-sm font-medium text-gray-700" :value="__('Category')" />
                         <select id="category" name="category" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}" {{ $house->category_id == $category->id ? 'selected' : '' }}>
@@ -62,49 +62,49 @@
 
                     <!-- Location -->
                     <div class="mt-6">
-                        <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+                        <x-label for="location" class="block text-sm font-medium text-gray-700" :value="__('Location')" />
                         <input type="text" name="location" id="location" value="{{ $house->location }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     </div>
 
                     <!-- Price -->
                     <div class="mt-6">
-                        <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+                        <x-label for="price" class="block text-sm font-medium text-gray-700":value="__('Price')" />
                         <input type="number" name="price" id="price" value="{{ $house->price }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     </div>
 
                     <!-- Description -->
                     <div class="mt-6">
-                        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                        <x-label for="description" class="block text-sm font-medium text-gray-700" :value="__('Desription')" />
                         <textarea name="description" id="description" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">{{ $house->description }}</textarea>
                     </div>
 
                     <!-- Amenities -->
                     <div class="mt-6">
-                        <label for="amenities" class="block text-sm font-medium text-gray-700">Amenities</label>
+                        <x-label for="amenities" class="block text-sm font-medium text-gray-700" :value="__('Amenities')"/>
                         <input type="text" name="amenities" id="amenities" value="{{ $house->amenities }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     </div>
 
                     <!-- Contact -->
                     <div class="mt-6">
-                        <label for="contact" class="block text-sm font-medium text-gray-700">Contact</label>
-                        <input type="text" name="contact" id="contact" value="{{ $house->contact }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <x-label for="contact" class="block text-sm font-medium text-gray-700" :value="__('Contact')"/>
+                        <input type="text" name="contact" id="contact" value="{{ $house->phone_number }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     </div>
 
                     <!-- Rules and Regulations -->
                     <div class="mt-6">
-                        <label for="rules_and_regulations" class="block text-sm font-medium text-gray-700">Rules and Regulations</label>
+                        <x-label for="rules_and_regulations" class="block text-sm font-medium text-gray-700" :value="__('Rules And Regulations')"/>
                         <textarea name="rules_and_regulations" id="rules_and_regulations" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">{{ $house->rules_and_regulations }}</textarea>
                     </div>
 
                     <!-- Main Image -->
                     <div class="mt-6">
-                        <label for="main_image" class="block text-sm font-medium text-gray-700">Main Image</label>
+                        <x-label for="main_image" class="block text-sm font-medium text-gray-700":value="__('Main Image')"/>
                         <input type="file" name="main_image" id="main_image" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     </div>
 
                     <!-- Additional Images -->
                     <div class="mt-6">
-                        <label for="images" class="block text-sm font-medium text-gray-700">Upload Additional House Images</label>
+                        <x-label for="images" class="block text-sm font-medium text-gray-700" :value="__('Upload Additional House Images')" />
                         <small class="form-text text-muted">Please select and upload other images of the house to provide a comprehensive view.</small>
                         <input type="file" name="images[]" id="images" multiple class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     </div>

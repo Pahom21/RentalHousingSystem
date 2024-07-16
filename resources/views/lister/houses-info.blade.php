@@ -66,7 +66,7 @@
                                 </tr>
                                 <tr class="border-b">
                                     <th class="py-2 px-4 font-medium text-gray-900">Contact</th>
-                                    <td class="py-2 px-4">{{ $house->contact }}</td>
+                                    <td class="py-2 px-4">{{ $house->phone_number }}</td>
                                 </tr>
                                 @if($house->rules_and_regulations)
                                     <tr class="border-b">

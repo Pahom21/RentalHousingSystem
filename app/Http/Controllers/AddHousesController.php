@@ -165,9 +165,11 @@ class AddHousesController extends Controller
         return response()->json($houses);
     }
 
-    public function edit(House $house)
+    public function edit($id)
     {
-        return view('lister.listingForm', compact('house'));
+        $categories = Category::all();
+        $house = House::findOrFail($id);
+        return view('lister.edit-house', compact('house','categories'));
     }
 
 
@@ -255,6 +257,15 @@ class AddHousesController extends Controller
             ]
         );
     }
+    
+    // To display the view details for the houses of the lister
+    public function show($id)
+    {
+        // Fetch the house with its associated images
+        $house = House::with('images')->findOrFail($id);
+    
+        return view('lister.houses-info', compact('house'));
+    }
 
-    // Other methods for handling specific actions like viewing notifications, communication, feedback, etc.
+
 }

@@ -15,20 +15,8 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link href="{{ route(bookings.index') }}" :active="request()->routeIs('hunter.bookings')">
+                    <x-nav-link href="{{ route('bookings.index') }}" :active="request()->routeIs('bookings.index')">
                         {{ __('My Bookings') }}
-                    </x-nav-link>
-
-                    <x-nav-link href="{{ route('hunter.notifications') }}" :active="request()->routeIs('hunter.notifications')">
-                        {{ __('Notifications') }}
-                    </x-nav-link>
-
-                    <x-nav-link href="{{ route('hunter.communication') }}" :active="request()->routeIs('hunter.communication')">
-                        {{ __('Communication') }}
-                    </x-nav-link>
-
-                    <x-nav-link href="{{ route('hunter.feedback') }}" :active="request()->routeIs('hunter.feedback')">
-                        {{ __('Feedback') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -57,21 +45,10 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link href="{{ route('hunter.bookings') }}" :active="request()->routeIs('hunter.bookings')">
+            <x-responsive-nav-link href="{{ route('bookings.index') }}" :active="request()->routeIs('bookings.index')">
                 {{ __('My Bookings') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link href="{{ route('hunter.notifications') }}" :active="request()->routeIs('hunter.notifications')">
-                {{ __('Notifications') }}
-            </x-responsive-nav-link>
-
-            <x-responsive-nav-link href="{{ route('hunter.communication') }}" :active="request()->routeIs('hunter.communication')">
-                {{ __('Communication') }}
-            </x-responsive-nav-link>
-
-            <x-responsive-nav-link href="{{ route('hunter.feedback') }}" :active="request()->routeIs('hunter.feedback')">
-                {{ __('Feedback') }}
-            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

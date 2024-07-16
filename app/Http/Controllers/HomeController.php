@@ -37,13 +37,12 @@ class HomeController extends Controller
                 case 5:
                     return redirect()->route('accountant.dashboard'); // Accountant dashboard
                 case 6:
-                    return redirect()->route('maintenance.dashboard'); // Maintenance Worker dashboard
-                case 7:
                     // Fetch houses listed by this user
                     $houses = House::where('user_id', auth()->id())->get();
                     return view('lister.dashboard', compact('houses'));; // House Lister dashboard
-                case 8:
-                    return redirect()->route('hunter.dashboard'); // House Hunter dashboard
+                    //return redirect()->route('maintenance.dashboard'); // Maintenance Worker dashboard
+                case 7:
+                    return redirect()->route('hunter.dashboard'); // House Hunter dashboard   
                 default:
                     return redirect()->route('tenant.dashboard'); // Default to tenant dashboard for other users
             }

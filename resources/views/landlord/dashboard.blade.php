@@ -41,10 +41,10 @@
                     </div>
 
                     <!-- Churn Rate-->
-                    <div class="bg-red-200 p-3 mt-4 rounded-lg">
+                    <!-- <div class="bg-red-200 p-3 mt-4 rounded-lg">
                         <h4 class="text-xl font-semibold">Churn Rate</h4>
                         <div class="py-6" id="churn-chart"></div>
-                     </div>
+                    </div> -->
 
                     <!-- Leases Expiring  Chart
                     <div class="py-6" id="bar-chart"></div> -->

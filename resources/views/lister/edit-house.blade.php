@@ -48,72 +48,79 @@
                     @csrf
                     @method('PUT')
 
-                    <!-- Category -->
-                    <div>
-                        <x-label for="category" class="block text-sm font-medium text-gray-700" :value="__('Category')" />
-                        <select id="category" name="category" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                            @foreach($categories as $category)
-                                <option value="{{ $category->id }}" {{ $house->category_id == $category->id ? 'selected' : '' }}>
-                                    {{ $category->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                    <!-- Location -->
-                    <div class="mt-6">
-                        <x-label for="location" class="block text-sm font-medium text-gray-700" :value="__('Location')" />
-                        <input type="text" name="location" id="location" value="{{ $house->location }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                    </div>
+                        <!-- Category -->
+                        <div class="col-span-6 sm:col-span-4">
+                            <x-label for="category" :value="__('Category')" />
+                            <x-select id="category" name="category" class="mt-1 block w-full" :value="$house->category_id" :options="$categories" fieldName="name" idField="id" />
+                            <x-input-error for="category" class="mt-2" />
+                        </div>
 
-                    <!-- Price -->
-                    <div class="mt-6">
-                        <x-label for="price" class="block text-sm font-medium text-gray-700":value="__('Price')" />
-                        <input type="number" name="price" id="price" value="{{ $house->price }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                    </div>
+                        <!-- Location -->
+                        <div class="col-span-6 sm:col-span-4">
+                            <x-label for="location" :value="__('Location')" />
+                            <x-input id="location" class="block mt-1 w-full" type="text" name="location" :value="$house->location" required autofocus />
+                            <x-input-error for="location" class="mt-2" />
+                        </div>
 
-                    <!-- Description -->
-                    <div class="mt-6">
-                        <x-label for="description" class="block text-sm font-medium text-gray-700" :value="__('Desription')" />
-                        <textarea name="description" id="description" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">{{ $house->description }}</textarea>
-                    </div>
+                        <!-- Price -->
+                        <div class="col-span-6 sm:col-span-4">
+                            <x-label for="price" :value="__('Price')" />
+                            <x-input id="price" class="block mt-1 w-full" type="number" name="price" :value="$house->price" required autofocus />
+                            <x-input-error for="price" class="mt-2" />
+                        </div>
 
-                    <!-- Amenities -->
-                    <div class="mt-6">
-                        <x-label for="amenities" class="block text-sm font-medium text-gray-700" :value="__('Amenities')"/>
-                        <input type="text" name="amenities" id="amenities" value="{{ $house->amenities }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                    </div>
+                        <!-- Description -->
+                        <div class="col-span-6 sm:col-span-4">
+                            <x-label for="description" :value="__('Description')" />
+                            <x-textarea id="description" class="block mt-1 w-full" name="description" rows="4" :value="$house->description" required autofocus></x-textarea>
+                            <x-input-error for="description" class="mt-2" />
+                        </div>
 
-                    <!-- Contact -->
-                    <div class="mt-6">
-                        <x-label for="contact" class="block text-sm font-medium text-gray-700" :value="__('Contact')"/>
-                        <input type="text" name="contact" id="contact" value="{{ $house->phone_number }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                    </div>
+                        <!-- Amenities -->
+                        <div class="col-span-6 sm:col-span-4">
+                            <x-label for="amenities" :value="__('Amenities')" />
+                            <x-textarea id="amenities" class="block mt-1 w-full" name="amenities" rows="4" :value="$house->amenities" required autofocus></x-textarea>
+                            <x-input-error for="amenities" class="mt-2" />
+                        </div>
 
-                    <!-- Rules and Regulations -->
-                    <div class="mt-6">
-                        <x-label for="rules_and_regulations" class="block text-sm font-medium text-gray-700" :value="__('Rules And Regulations')"/>
-                        <textarea name="rules_and_regulations" id="rules_and_regulations" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">{{ $house->rules_and_regulations }}</textarea>
-                    </div>
+                        <!-- Contact -->
+                        <div class="col-span-6 sm:col-span-4">
+                            <x-label for="contact" :value="__('Contact')" />
+                            <x-input id="contact" class="block mt-1 w-full" type="tel" name="contact" :value="$house->phone_number" required autofocus />
+                            <x-input-error for="contact" class="mt-2" />
+                        </div>
 
-                    <!-- Main Image -->
-                    <div class="mt-6">
-                        <x-label for="main_image" class="block text-sm font-medium text-gray-700":value="__('Main Image')"/>
-                        <input type="file" name="main_image" id="main_image" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                    </div>
+                        <!-- Rules and Regulations -->
+                        <div class="col-span-6 sm:col-span-4">
+                            <x-label for="rules_and_regulations" :value="__('Rules And Regulations')" />
+                            <x-textarea id="rules_and_regulations" class="block mt-1 w-full" name="rules_and_regulations" rows="4" :value="$house->rules_and_regulations" required autofocus></x-textarea>
+                            <x-input-error for="rules_and_regulations" class="mt-2" />
+                        </div>
 
-                    <!-- Additional Images -->
-                    <div class="mt-6">
-                        <x-label for="images" class="block text-sm font-medium text-gray-700" :value="__('Upload Additional House Images')" />
-                        <small class="form-text text-muted">Please select and upload other images of the house to provide a comprehensive view.</small>
-                        <input type="file" name="images[]" id="images" multiple class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                    </div>
+                        <!-- Main Image -->
+                        <div class="col-span-6 sm:col-span-4">
+                            <x-label for="main_image" :value="__('Main Image')" />
+                            <x-input id="main_image" class="block mt-1 w-full" type="file" name="main_image" required autofocus />
+                            <x-input-error for="main_image" class="mt-2" />
+                        </div>
 
-                    <!-- Availability -->
-                    <div class="col-span-6 sm:col-span-4 mt-6">
-                        <x-label for="availability" :value="('Availability')" />
-                        <x-radio-button-group name="availability" :options="['available' => 'Available', 'unavailable' => 'Unavailable', 'booked' => 'Booked']" selected="{{ old('availability') ?? $house->availability ?? '' }}" /> 
-                        <x-input-error for="availability" class="mt-2" />
+                        <!-- Additional Images -->
+                        <div class="col-span-6 sm:col-span-4">
+                            <x-label for="images" :value="__('Upload Additional House Images')" />
+                            <small class="form-text text-muted">Please select and upload other images of the house to provide a comprehensive view.</small>
+                            <x-input id="images" class="block mt-1 w-full" type="file" name="images[]" multiple autofocus />
+                            <x-input-error for="images" class="mt-2" />
+                        </div>
+
+                        <!-- Availability -->
+                        <div class="col-span-6 sm:col-span-4 mt-6">
+                            <x-label for="availability" :value="__('Availability')" />
+                            <x-radio-button-group name="availability" :options="['available' => 'Available', 'unavailable' => 'Unavailable', 'booked' => 'Booked']" selected="{{ old('availability') ?? $house->availability ?? '' }}" /> 
+                            <x-input-error for="availability" class="mt-2" />
+                        </div>
+
                     </div>
 
                     <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Update House</button>
